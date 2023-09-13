@@ -17,6 +17,7 @@
     "autoprefixer": "10.4.15",
     "cloudinary": "^1.40.0",
     "encoding": "^0.1.12",
+    "grafbase": "^0.24.0",
     "graphql-request": "^6.1.0",
     "jsonwebtoken": "^9.0.2",
     "next": "13.4.19",

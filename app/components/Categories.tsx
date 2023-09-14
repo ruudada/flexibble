@@ -11,8 +11,6 @@ const Categories = () => {
 
   const category = searchParams.get("category");
 
-  console.log("Category: ", category);
-
   const handleTags = (item: string) => {
     router.push(`${pathName}?category=${item}`);
   };

@@ -64,7 +64,7 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
         <Image
           src={`${projectDetails?.image}`}
           className="object-cover rounded-2xl"
-          width={1064}
+          width={900}
           height={798}
           alt="poster"
         />

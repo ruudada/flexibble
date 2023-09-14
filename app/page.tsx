@@ -26,6 +26,11 @@ type ProjectSearch = {
     };
   };
 };
+
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+export const revalidate = 0;
+
 const Home = async ({ searchParams: { category, endcursor } }: Props) => {
   const data = (await fetchAllProjects(category, endcursor)) as ProjectSearch;
 
@@ -41,14 +46,16 @@ const Home = async ({ searchParams: { category, endcursor } }: Props) => {
       </section>
     );
   }
-
   const pagination = data?.projectSearch?.pageInfo;
 
+  const filteredProjects = category
+    ? projectsToDisplay.filter((project) => project.node.category === category)
+    : projectsToDisplay;
   return (
     <section className="flex-start flex-col paddings mb-16">
       <Categories />
       <section className="projects-grid">
-        {projectsToDisplay.map(({ node }: { node: ProjectInterface }) => (
+        {filteredProjects.map(({ node }: { node: ProjectInterface }) => (
           <ProjectCard
             key={`${node?.id}`}
             id={node?.id}
